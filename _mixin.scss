@@ -1,0 +1,27 @@
+@mixin transition($property, $duration) {
+    transition: $property $duration;
+}
+
+@mixin hover-effect($bg-color, $text-color) {
+    background: $bg-color;
+    color: $text-color;
+
+    &:hover {
+        animation: scaleAndChange 1s forwards infinite; /* Animatsiyani chaqiramiz */
+        @keyframes scaleAndChange {
+            0% {
+                background-color: lighten($primary-color, 10%);
+                transform: scale(1);
+            }
+            50% {
+                background-color: darken($secondary-color, 10%);
+                transform: scale(1.2);
+            }
+            100% {
+                background-color: lighten($primary-color, 10%);
+                transform: scale(1);
+            }
+        }
+    }
+}
+// 
